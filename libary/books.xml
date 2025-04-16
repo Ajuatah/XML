@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <book>
+    <title>The Hobbit</title>
+    <author>J.R.R. Tolkien</author>
+    <genre>Fantasy</genre>
+    <year>1937</year>
+    <cover>https://covers.openlibrary.org/b/id/6979861-L.jpg</cover>
+    <description>A fantasy novel about the journey of Bilbo Baggins.</description>
+  </book>
+  <book>
+    <title>1984</title>
+    <author>George Orwell</author>
+    <genre>Dystopian</genre>
+    <year>1949</year>
+    <cover>https://covers.openlibrary.org/b/id/7222246-L.jpg</cover>
+    <description>A chilling depiction of a totalitarian regime and constant surveillance.</description>
+  </book>
+  <book>
+    <title>To Kill a Mockingbird</title>
+    <author>Harper Lee</author>
+    <genre>Fiction</genre>
+    <year>1960</year>
+    <cover>https://covers.openlibrary.org/b/id/8228691-L.jpg</cover>
+    <description>A story of racial injustice and moral growth in the Deep South.</description>
+  </book>
+  <book>
+    <title>Pride and Prejudice</title>
+    <author>Jane Austen</author>
+    <genre>Romance</genre>
+    <year>1813</year>
+    <cover>https://covers.openlibrary.org/b/id/8231856-L.jpg</cover>
+    <description>A witty critique of social norms, marriage, and class in 19th-century England.</description>
+  </book>
+  <book>
+    <title>Brave New World</title>
+    <author>Aldous Huxley</author>
+    <genre>Dystopian</genre>
+    <year>1932</year>
+    <cover>https://covers.openlibrary.org/b/id/7222161-L.jpg</cover>
+    <description>A futuristic society built on technology and control—challenging human freedom.</description>
+  </book>
+  <book>
+    <title>The Great Gatsby</title>
+    <author>F. Scott Fitzgerald</author>
+    <genre>Fiction</genre>
+    <year>1925</year>
+    <cover>https://covers.openlibrary.org/b/id/7352160-L.jpg</cover>
+    <description>The mysterious millionaire Jay Gatsby and the American Dream in the 1920s.</description>
+  </book>
+  <book>
+    <title>Harry Potter and the Sorcerer's Stone</title>
+    <author>J.K. Rowling</author>
+    <genre>Fantasy</genre>
+    <year>1997</year>
+    <cover>https://covers.openlibrary.org/b/id/7984916-L.jpg</cover>
+    <description>A young wizard discovers his magical heritage and begins his journey at Hogwarts.</description>
+  </book>
+  <book>
+    <title>The Catcher in the Rye</title>
+    <author>J.D. Salinger</author>
+    <genre>Fiction</genre>
+    <year>1951</year>
+    <cover>https://covers.openlibrary.org/b/id/8231990-L.jpg</cover>
+    <description>Holden Caulfield’s angsty teenage rebellion in 1950s New York City.</description>
+  </book>
+  <book>
+    <title>Frankenstein</title>
+    <author>Mary Shelley</author>
+    <genre>Horror</genre>
+    <year>1818</year>
+    <cover>https://covers.openlibrary.org/b/id/8091016-L.jpg</cover>
+    <description>A gothic tale of science, creation, and monstrous consequences.</description>
+  </book>
+  <book>
+    <title>The Alchemist</title>
+    <author>Paulo Coelho</author>
+    <genre>Philosophical</genre>
+    <year>1988</year>
+    <cover>https://covers.openlibrary.org/b/id/8100921-L.jpg</cover>
+    <description>A shepherd’s journey across the desert to discover his personal legend.</description>
+  </book>
+</library>
