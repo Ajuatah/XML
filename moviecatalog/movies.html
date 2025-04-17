@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Catalog</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    #controls {
+      margin: 20px 0;
+    }
+    input, select {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #catalog {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .movie-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 250px;
+      text-align: left;
+      transition: transform 0.2s ease;
+    }
+    .movie-card:hover {
+      transform: translateY(-5px);
+    }
+    .movie-card h2 {
+      margin: 0 0 10px;
+      color: #34495e;
+    }
+    .movie-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1> Movie Catalog</h1>
+
+  <div id="controls">
+    <input type="text" id="search" placeholder="Search by title..." oninput="applyFilters()">
+    <select id="genreFilter" onchange="applyFilters()">
+      <option value="">All Genres</option>
+    </select>
+    <select id="sortRating" onchange="applyFilters()">
+      <option value="">Sort by Rating</option>
+      <option value="asc">Rating: Low to High</option>
+      <option value="desc">Rating: High to Low</option>
+    </select>
+  </div>
+
+  <div id="catalog"></div>
+
+  <script>
+    let moviesData = [];
+
+    function loadCatalog() {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          const xmlDoc = this.responseXML;
+          const movies = xmlDoc.getElementsByTagName("movie");
+
+          for (let i = 0; i < movies.length; i++) {
+            const movie = movies[i];
+            moviesData.push({
+              title: movie.getElementsByTagName("title")[0].textContent,
+              director: movie.getElementsByTagName("director")[0].textContent,
+              genre: movie.getElementsByTagName("genre")[0].textContent,
+              rating: parseFloat(movie.getElementsByTagName("rating")[0].textContent)
+            });
+          }
+
+          populateGenres();
+          displayCatalog(moviesData);
+        }
+      };
+      xhr.open("GET", "movies.xml", true);
+      xhr.send();
+    }
+
+    function populateGenres() {
+      const genres = [...new Set(moviesData.map(movie => movie.genre))];
+      const genreSelect = document.getElementById("genreFilter");
+
+      genres.forEach(genre => {
+        const option = document.createElement("option");
+        option.value = genre;
+        option.textContent = genre;
+        genreSelect.appendChild(option);
+      });
+    }
+
+    function displayCatalog(movies) {
+      const catalogDiv = document.getElementById("catalog");
+      catalogDiv.innerHTML = "";
+
+      movies.forEach(movie => {
+        const movieDiv = document.createElement("div");
+        movieDiv.className = "movie-card";
+        movieDiv.innerHTML = `
+          <h2>${movie.title}</h2>
+          <p><strong>Director:</strong> ${movie.director}</p>
+          <p><strong>Genre:</strong> ${movie.genre}</p>
+          <p><strong>Rating:</strong> ${movie.rating}</p>
+        `;
+        catalogDiv.appendChild(movieDiv);
+      });
+    }
+
+    function applyFilters() {
+      const searchText = document.getElementById("search").value.toLowerCase();
+      const selectedGenre = document.getElementById("genreFilter").value;
+      const sortOption = document.getElementById("sortRating").value;
+
+      let filtered = moviesData.filter(movie =>
+        movie.title.toLowerCase().includes(searchText) &&
+        (selectedGenre === "" || movie.genre === selectedGenre)
+      );
+
+      if (sortOption === "asc") {
+        filtered.sort((a, b) => a.rating - b.rating);
+      } else if (sortOption === "desc") {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      displayCatalog(filtered);
+    }
+
+    loadCatalog();
+  </script>
+</body>
+</html>

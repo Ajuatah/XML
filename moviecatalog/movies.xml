@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+  <movie id="1">
+    <title>Inception</title>
+    <director>Christopher Nolan</director>
+    <genre>Sci-Fi</genre>
+    <rating>8.8</rating>
+  </movie>
+  <movie id="2">
+    <title>Parasite</title>
+    <director>Bong Joon-ho</director>
+    <genre>Thriller</genre>
+    <rating>8.6</rating>
+  </movie>
+  <movie id="3">
+    <title>Interstellar</title>
+    <director>Christopher Nolan</director>
+    <genre>Adventure</genre>
+    <rating>8.6</rating>
+  </movie>
+  <movie id="4">
+    <title>The Godfather</title>
+    <director>Francis Ford Coppola</director>
+    <genre>Crime</genre>
+    <rating>9.2</rating>
+  </movie>
+  <movie id="5">
+    <title>Shawshank Redemption</title>
+    <director>Frank Darabont</director>
+    <genre>Drama</genre>
+    <rating>9.3</rating>
+  </movie>
+  <movie id="6">
+    <title>The Dark Knight</title>
+    <director>Christopher Nolan</director>
+    <genre>Action</genre>
+    <rating>9.0</rating>
+  </movie>
+  <movie id="7">
+    <title>Fight Club</title>
+    <director>David Fincher</director>
+    <genre>Drama</genre>
+    <rating>8.8</rating>
+  </movie>
+  <movie id="8">
+    <title>Forrest Gump</title>
+    <director>Robert Zemeckis</director>
+    <genre>Romance</genre>
+    <rating>8.8</rating>
+  </movie>
+  <movie id="9">
+    <title>Joker</title>
+    <director>Todd Phillips</director>
+    <genre>Drama</genre>
+    <rating>8.4</rating>
+  </movie>
+  <movie id="10">
+    <title>Avengers: Endgame</title>
+    <director>Anthony and Joe Russo</director>
+    <genre>Action</genre>
+    <rating>8.4</rating>
+  </movie>
+  <movie id="11">
+    <title>Gladiator</title>
+    <director>Ridley Scott</director>
+    <genre>Action</genre>
+    <rating>8.5</rating>
+  </movie>
+  <movie id="12">
+    <title>Whiplash</title>
+    <director>Damien Chazelle</director>
+    <genre>Drama</genre>
+    <rating>8.5</rating>
+  </movie>
+  <movie id="13">
+    <title>The Prestige</title>
+    <director>Christopher Nolan</director>
+    <genre>Mystery</genre>
+    <rating>8.5</rating>
+  </movie>
+  <movie id="14">
+    <title>The Matrix</title>
+    <director>The Wachowskis</director>
+    <genre>Sci-Fi</genre>
+    <rating>8.7</rating>
+  </movie>
+  <movie id="15">
+    <title>1917</title>
+    <director>Sam Mendes</director>
+    <genre>War</genre>
+    <rating>8.3</rating>
+  </movie>
+  <movie id="16">
+    <title>La La Land</title>
+    <director>Damien Chazelle</director>
+    <genre>Musical</genre>
+    <rating>8.0</rating>
+  </movie>
+  <movie id="17">
+    <title>Black Panther</title>
+    <director>Ryan Coogler</director>
+    <genre>Action</genre>
+    <rating>7.3</rating>
+  </movie>
+  <movie id="18">
+    <title>The Social Network</title>
+    <director>David Fincher</director>
+    <genre>Biography</genre>
+    <rating>7.7</rating>
+  </movie>
+  <movie id="19">
+    <title>Get Out</title>
+    <director>Jordan Peele</director>
+    <genre>Horror</genre>
+    <rating>7.7</rating>
+  </movie>
+  <movie id="20">
+    <title>The Grand Budapest Hotel</title>
+    <director>Wes Anderson</director>
+    <genre>Comedy</genre>
+    <rating>8.1</rating>
+  </movie>
+  <movie id="21">
+    <title>Django Unchained</title>
+    <director>Quentin Tarantino</director>
+    <genre>Western</genre>
+    <rating>8.4</rating>
+  </movie>
+  <movie id="22">
+    <title>Spider-Man: Into the Spider-Verse</title>
+    <director>Bob Persichetti</director>
+    <genre>Animation</genre>
+    <rating>8.4</rating>
+  </movie>
+  <movie id="23">
+    <title>Everything Everywhere All at Once</title>
+    <director>Daniel Kwan and Daniel Scheinert</director>
+    <genre>Sci-Fi</genre>
+    <rating>8.1</rating>
+  </movie>
+</movies>
