@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+  <home>
+    <title>Welcome to HealthPlus Pro</title>
+    <body>
+      <![CDATA[
+        <div class='section'><h2>About Us</h2><p>We are dedicated to promoting health and wellness through expert tips, resources, and community support.</p></div>
+        <div class='section'><h2>Our Services</h2><ul><li>Nutrition Counseling</li><li>Fitness Planning</li><li>Mental Health Support</li></ul></div>
+        <div class='section'><h2>Latest News</h2><p>Stay updated with our latest blogs and health news curated by professionals.</p></div>
+      ]]>
+    </body>
+  </home>
+  <register>
+    <title>Register with HealthPlus Pro</title>
+    <body>
+      <![CDATA[
+        <p>Sign up today to get personalized health advice and wellness tracking tools tailored to your needs.</p>
+      ]]>
+    </body>
+  </register>
+  <contact>
+    <title>Contact HealthPlus Pro</title>
+    <body>
+      <![CDATA[
+        <p>Email: support@healthpluspro.com | Phone: +1234567890 | Address: 123 Wellness Blvd, Healthy City</p>
+      ]]>
+    </body>
+  </contact>
+  <login>
+    <title>Login to Your Account</title>
+    <body>
+      <![CDATA[
+        <p>Access your dashboard, health reports, and personalized content by logging in.</p>
+      ]]>
+    </body>
+  </login>
+  <blog>
+    <title>HealthPlus Blog</title>
+    <body>
+      <![CDATA[
+        <div class='section'><h2>5 Tips to Improve Your Diet</h2><p>Discover easy ways to incorporate healthy eating habits into your lifestyle.</p></div>
+        <div class='section'><h2>Mental Health Awareness</h2><p>Learn how to identify signs and support mental well-being effectively.</p></div>
+      ]]>
+    </body>
+  </blog>
+</pages>
