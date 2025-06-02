@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Book Catalog Project
 
 This project demonstrates a simple book catalog application using XML, XML Schema, HTML, CSS, and JavaScript.
@@ -56,3 +57,65 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+=======
+# Interactive Book Library
+
+**Interactive Book Library** is a web-based app for browsing, searching, and filtering books, with user authentication and a contact form. XML is used for data and page content.
+
+## Features
+
+- User registration and login (JWT authentication)
+- Browse, search, and filter books
+- Contact form to message the library
+- XML-driven dynamic content
+- Responsive design
+
+## Project Structure
+
+```
+Libary/
+  ├── pages/
+  │     ├── books.html
+  │     ├── contact.html
+  │     └── register.html
+  ├── xml/
+  │     ├── books.xml
+  │     ├── contact.xml
+  │     └── register.xml
+  ├── loaders/
+  │     └── xmlLoader.js
+  ├── db/
+  │     └── db.js
+  ├── server.js
+  ├── package.json
+  └── README.md
+```
+
+## How It Works
+
+- XML files store book and page data.
+- Node.js/Express backend serves HTML and APIs.
+- Frontend fetches XML via API and renders content dynamically.
+- Users can register, log in, browse books, and contact the library.
+
+## Getting Started
+
+1. Install dependencies: `npm install`
+2. Configure `.env` for your database.
+3. Load XML data: `npm run load-data`
+4. Start server: `npm start`
+5. Open `http://localhost:3000` in your browser.
+
+## Example Book Data
+
+```xml
+<book>
+  <title>The Hobbit</title>
+  <author>J.R.R. Tolkien</author>
+  <genre>Fantasy</genre>
+  <year>1937</year>
+  <cover>https://covers.openlibrary.org/b/id/6979861-L.jpg</cover>
+  <description>A fantasy novel about the journey of Bilbo Baggins.</description>
+</book>
+```
+>>>>>>> 654f145 (added new liabary project)

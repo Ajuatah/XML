@@ -1,0 +1,25 @@
+{
+  "name": "libary",
+  "version": "1.0.0",
+  "description":"",
+  "main": "server.js",
+ "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "load-data": "node loaders/xmlLoader.js" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0"
+  }
+}

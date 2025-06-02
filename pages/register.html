@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library - Register/Login</title>
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 500px; margin: auto; }
+    input, button { display: block; width: 100%; padding: 10px; margin: 10px 0; }
+    form { border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div id="pageContent">Loading...</div>
+
+  <script>
+    async function loadRegisterPage() {
+      const res = await fetch('http://localhost:3000/api/pages/register');
+      const xmlText = await res.text();
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, 'application/xml');
+
+      const description = xml.querySelector('description')?.textContent;
+      const forms = xml.querySelector('forms')?.innerHTML;
+
+      document.getElementById('pageContent').innerHTML = `
+        <h1>Library Access</h1>
+        <p>${description}</p>
+        ${forms}
+      `;
+
+      // Add event listeners after injecting forms
+      document.getElementById('registerForm').addEventListener('submit', handleRegister);
+      document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value;
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+
+      const res = await fetch('http://localhost:3000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert(' Registered! You can now log in.');
+        switchToLogin();
+      } else {
+        alert(data.error || ' Registration failed');
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const res = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (res.ok && data.token) {
+        localStorage.setItem('token', data.token);
+        alert(`Welcome, ${data.username}! Redirecting to library...`);
+        window.location.href = 'books.html';
+      } else {
+        alert(data.error || ' Login failed');
+      }
+    }
+
+    function switchToRegister() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+    }
+
+    function switchToLogin() {
+      document.getElementById('registerForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    loadRegisterPage();
+  </script>
+</body>
+</html>

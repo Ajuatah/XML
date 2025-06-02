@@ -1,0 +1,39 @@
+<books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="xml-schemas/book_catalog.xsd">
+  <book>
+    <id>1</id>
+    <title>The Alchemist</title>
+    <author>Paulo Coelho</author>
+    <genre>Fiction</genre>
+    <year>1988</year>
+    <description>A philosophical story about a shepherd's journey to fulfill his destiny.</description>
+    <cover>alchemist.jpg</cover>
+  </book>
+  <book>
+    <id>2</id>
+    <title>Atomic Habits</title>
+    <author>James Clear</author>
+    <genre>Non-fiction</genre>
+    <year>2018</year>
+    <description>A guide to building good habits and breaking bad ones using practical strategies.</description>
+    <cover>atomic_habits.jpg</cover>
+  </book>
+  <book>
+    <id>3</id>
+    <title>Dune</title>
+    <author>Frank Herbert</author>
+    <genre>Sci-Fi</genre>
+    <year>1965</year>
+    <description>An epic science fiction tale set on a desert planet with political intrigue and adventure.</description>
+    <cover>dune.jpg</cover>
+  </book>
+  <book>
+    <id>4</id>
+    <title>Steve Jobs</title>
+    <author>Walter Isaacson</author>
+    <genre>Biography</genre>
+    <year>2011</year>
+    <description>The life of Steve Jobs based on numerous interviews with the visionary Apple co-founder.</description>
+    <cover>steve_jobs.jpg</cover>
+  </book>
+</books>
