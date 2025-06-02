@@ -1,18 +1,18 @@
-# Book Catalog Project
+# studend course registration managment project
 
-This project demonstrates a simple book catalog application using XML, XML Schema, HTML, CSS, and JavaScript.
+This project demonstrates a studend course registration catalog application using XML, XML Schema, HTML, CSS, and JavaScript.
 
 ## Features
 
-*   Displays a catalog of books fetched from an XML file (books.xml).
-*   Uses an XML Schema (books.xsd) to define the structure of the XML data.
-*   Employs JavaScript and the DOM API to dynamically render the book information on a web page.
+*   Displays a registration, login and ccourses registration page by fetched from an XML file (pages.xml).
+*   Uses an XML Schema (course.dtd) to define the structure of the XML data.
+*   Employs JavaScript and the DOM API to dynamically render the page information on a web page.
 *   Provides a basic example of working with XML in a web application context.
 
 ## Technologies Used
 
 *   XML (Extensible Markup Language)
-*   XML Schema (XSD)
+*   XML Schema (dtd)
 *   HTML (Hypertext Markup Language)
 *   CSS (Cascading Style Sheets)
 *   JavaScript
@@ -21,9 +21,9 @@ This project demonstrates a simple book catalog application using XML, XML Schem
 
 ## Project Structure
 
-*   books.xml: The XML document containing the book catalog data.
-*   books.xsd: The XML Schema defining the structure of the XML data.
-*   index.html: The HTML page that displays the book catalog.
+*   pages.xml: The XML document containing the regustration,login, courses data.
+*   courses.dtd: The XML Schema defining the structure of the XML data.
+*   index.html: The HTML page that displays the pages.xml and courses.xml.
 *   style.css: (Optional) CSS file for styling the page.
 
 ## How to Run
@@ -35,15 +35,16 @@ This project demonstrates a simple book catalog application using XML, XML Schem
 
 ## Code Explanation
 
-*   **books.xml:** Contains the book data in XML format.
-*   **books.xsd:** Defines the structure and data types for the XML document.
+*   **pages.xml and courses.xml:** Contains the pages and courses data in XML format.
+*   **courses.dtd:** Defines the structure and data types for the coures.XML document.
 *   **index.html:**
     *   Includes JavaScript code that fetches the XML data using Ajax.
     *   Uses DOM methods to parse the XML and dynamically create HTML elements to display the book information.
+    *   data base system using mysql workbench for stoing student login infor and registration infor for new students.
 
 ## Future Enhancements
 
-*   Add more books to the catalog.
+*   Add more delet student to by admin.
 *   Implement search and filtering functionality.
 *   Use XSLT to transform the XML data into different formats.
 *   Validate the XML document against the schema using JavaScript.
