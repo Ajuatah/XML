@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Doctors>
+    <Doctor>
+        <Username>smith123</Username>
+        <Password>passSmith</Password>
+        <DoctorID>001</DoctorID>
+    </Doctor>
+    <Doctor>
+        <Username>boris456</Username>
+        <Password>passboris</Password>
+        <DoctorID>002</DoctorID>
+    </Doctor>
+</Doctors>
