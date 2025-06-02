@@ -1,7 +1,8 @@
 <<<<<<< HEAD
 
 # Interactive Book Library
-
+Name: FOUYOU CHINJEH BRAIN
+MAT: SENG22SE009
 **Interactive Book Library** is a web-based app for browsing, searching, and filtering books, with user authentication and a contact form. XML is used for data and page content.
 ## Technologies Used
 
