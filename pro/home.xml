@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hospital>
+    <Patients>
+        <!-- Patients are stored here dynamically -->
+    </Patients>
+</Hospital>
