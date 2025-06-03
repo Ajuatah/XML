@@ -1,58 +1,105 @@
-# Book Catalog Project
+<<<<<<< HEAD
 
-This project demonstrates a simple book catalog application using XML, XML Schema, HTML, CSS, and JavaScript.
-
-## Features
-
-*   Displays a catalog of books fetched from an XML file (books.xml).
-*   Uses an XML Schema (books.xsd) to define the structure of the XML data.
-*   Employs JavaScript and the DOM API to dynamically render the book information on a web page.
-*   Provides a basic example of working with XML in a web application context.
-
+# Interactive Book Library
+Name: FOUYOU CHINJEH BRAIN
+MAT: SENG22SE009
+**Interactive Book Library** is a web-based app for browsing, searching, and filtering books, with user authentication and a contact form. XML is used for data and page content.
 ## Technologies Used
 
 *   XML (Extensible Markup Language)
 *   XML Schema (XSD)
 *   HTML (Hypertext Markup Language)
 *   CSS (Cascading Style Sheets)
-*   JavaScript
+*   JavaScript and nodejs(express)
 *   DOM (Document Object Model)
-*   Ajax (Asynchronous JavaScript and XML)
+*   postgresql
+## Features
+
+- User registration and login (JWT authentication)
+- Browse, search, and filter books
+- Contact form to message the library
+- XML-driven dynamic content
+- Responsive design
 
 ## Project Structure
 
-*   books.xml: The XML document containing the book catalog data.
-*   books.xsd: The XML Schema defining the structure of the XML data.
-*   index.html: The HTML page that displays the book catalog.
-*   style.css: (Optional) CSS file for styling the page.
+```
+Libary/
+  ├── pages/
+  │     ├── books.html
+  │     ├── contact.html
+  │     └── register.html
+  ├── xml/
+  │     ├── books.xml
+  │     ├── contact.xml
+  │     └── register.xml
+  ├── loaders/
+  │     └── xmlLoader.js
+  ├── db/
+  │     └── db.js
+  ├── server.js
+  ├── package.json
+  └── README.md
+```
 
-## How to Run
+## How It Works
 
-1.  Clone the repository: 
-2.  Open the index.html file in your web browser.
+- XML files store book and page data.
+- Node.js/Express backend serves HTML and APIs.
+- Frontend fetches XML via API and renders content dynamically.
+- Users can register, log in, browse books, and contact the library.
 
-**Note:** Due to CORS (Cross-Origin Resource Sharing) policies, you might need to run a local web server to view this project correctly. You can use Python's http.server or a similar tool to serve the files.
+## SQL Script
+-- Table to store XML pages
+CREATE TABLE pages (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    xml_content XML NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-## Code Explanation
+  -- Users table for registration and login
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-*   **books.xml:** Contains the book data in XML format.
-*   **books.xsd:** Defines the structure and data types for the XML document.
-*   **index.html:**
-    *   Includes JavaScript code that fetches the XML data using Ajax.
-    *   Uses DOM methods to parse the XML and dynamically create HTML elements to display the book information.
+-- Books table
+CREATE TABLE books (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    genre VARCHAR(50),
+    year INT,
+    cover_url TEXT,
+    description TEXT
+);
 
-## Future Enhancements
+-- Contact messages table
+CREATE TABLE contact_messages (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE SET NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-*   Add more books to the catalog.
-*   Implement search and filtering functionality.
-*   Use XSLT to transform the XML data into different formats.
-*   Validate the XML document against the schema using JavaScript.
-*   Implement error handling and loading indicators.
+-- Optional: Indexes for faster search
+CREATE INDEX idx_books_title ON books(title);
+CREATE INDEX idx_books_author ON books(author);
 
-## Contributing
+======
+## Getting Started
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+1. Install dependencies: `npm install`
+2. Configure `.env` for your database.
+3. Load XML data: `npm run load-data` to store xml to the database
+4. Start server: `npm start`
+5. Open `http://localhost:3000` in your browser.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+>>>>>>> 654f145 (added new liabary project)

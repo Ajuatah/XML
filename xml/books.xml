@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="xml-schemas/page.xsd">
+
+  <searchbar>
+    <input type="text" id="searchInput" placeholder="Search by title or author" />
+    <button onclick="searchBooks()">Search</button>
+  </searchbar>
+
+  <filter>
+    <select id="genreFilter" onchange="filterByGenre()">
+      <option value="">All Genres</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="History">History</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Biography">Biography</option>
+    </select>
+  </filter>
+
+  <books></books>
+</page>

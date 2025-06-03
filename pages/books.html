@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library - Books</title>
+  <style>
+    body { font-family: Arial; padding: 20px; margin: 0; } /* Added margin: 0 */
+    header {
+        display: flex;
+        justify-content: space-between; /* Space out title and nav */
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+        margin: 0;
+    }
+    nav button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 10px; /* Space between buttons */
+    }
+    nav #contactBtn {
+        background-color: #007bff;
+        color: white;
+    }
+    nav #logoutBtn {
+        background-color: #dc3545;
+        color: white;
+    }
+    #controls { padding: 20px; background-color: #e9ecef; border-bottom: 1px solid #dee2e6; }
+    #bookGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+    .book { border: 1px solid #ccc; padding: 10px; border-radius: 8px; background: #f9f9f9; text-align: center; } /* Added text-align */
+    .book img { width: 100%; max-width: 150px; height: auto; border-radius: 4px; margin-bottom: 10px; } /* Added max-width and margin */
+    .book h3 { margin: 10px 0 5px; font-size: 1.2em; }
+    .book p { font-size: 0.9em; color: #555; }
+    input, select, button { padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { background-color: #28a745; color: white; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book Library</h1>
+    <nav>
+        <button id="contactBtn">Contact Us</button>
+        <button id="logoutBtn">Logout</button>
+    </nav>
+  </header>
+
+  <div id="controls">
+    </div>
+  <div id="bookGrid">Loading books...</div>
+
+  <script>
+    const API_URL = 'http://localhost:3000'; // Define API_URL once
+
+    // Function to load the books page content (search, filter, initial books)
+    async function loadBooksPage() {
+      try {
+        const xmlRes = await fetch(`${API_URL}/api/pages/books`);
+        if (!xmlRes.ok) throw new Error(`HTTP error! status: ${xmlRes.status}`);
+        const xmlText = await xmlRes.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, 'application/xml');
+
+        const searchbarHTML = xml.querySelector('searchbar')?.innerHTML || '';
+        const filterHTML = xml.querySelector('filter')?.innerHTML || '';
+
+        document.getElementById('controls').innerHTML = `${searchbarHTML}${filterHTML}`;
+
+        // Re-attach event listeners for dynamically loaded elements
+        document.getElementById('searchBtn')?.addEventListener('click', searchBooks);
+        document.getElementById('genreFilter')?.addEventListener('change', filterByGenre);
+
+
+        await loadAllBooks(); // Load all books after controls are in place
+      } catch (error) {
+        console.error("Error loading books page content:", error);
+        document.getElementById('controls').innerHTML = '<p>Failed to load controls.</p>';
+        document.getElementById('bookGrid').innerHTML = '<p>Failed to load books.</p>';
+      }
+    }
+
+    // Function to fetch and display all books
+    async function loadAllBooks() {
+      try {
+        const res = await fetch(`${API_URL}/api/books`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const books = await res.json();
+        displayBooks(books);
+      } catch (error) {
+        console.error("Error loading all books:", error);
+        document.getElementById('bookGrid').innerHTML = '<p>Failed to load books.</p>';
+      }
+    }
+
+    // Function to search books
+    async function searchBooks() {
+      const query = document.getElementById('searchInput').value;
+      if (!query) return loadAllBooks(); // If query is empty, show all books
+
+      try {
+        const res = await fetch(`${API_URL}/api/books/search?query=${encodeURIComponent(query)}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const books = await res.json();
+        displayBooks(books);
+      } catch (error) {
+        console.error("Error searching books:", error);
+        document.getElementById('bookGrid').innerHTML = '<p>Failed to search books.</p>';
+      }
+    }
+
+    // Function to filter books by genre
+    async function filterByGenre() {
+      const genre = document.getElementById('genreFilter').value;
+      if (!genre) return loadAllBooks(); // If no genre selected, show all books
+
+      try {
+        const res = await fetch(`${API_URL}/api/books/genre/${encodeURIComponent(genre)}`);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const books = await res.json();
+        displayBooks(books);
+      } catch (error) {
+        console.error("Error filtering books by genre:", error);
+        document.getElementById('bookGrid').innerHTML = '<p>Failed to filter books.</p>';
+      }
+    }
+
+    // Function to display books in the grid
+    function displayBooks(books) {
+      const grid = document.getElementById('bookGrid');
+      if (!Array.isArray(books) || books.length === 0) {
+        grid.innerHTML = '<p>No books found matching your criteria.</p>';
+        return;
+      }
+
+const defaultImageUrl = 'https://via.placeholder.com/150x200?text=No+Cover+Available'; 
+
+      grid.innerHTML = books.map(book => `
+        <div class="book">
+          <img src="${book.cover || defaultImageUrl}" alt="Cover for ${book.title}" />
+          <h3>${book.title}</h3>
+          <p><strong>Author:</strong> ${book.author}</p>
+          <p><strong>Genre:</strong> ${book.genre}</p>
+          <p>${book.description}</p>
+        </div>
+      `).join('');
+    }
+
+    // --- Button Functionality ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const contactBtn = document.getElementById('contactBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Handle Contact Button Click
+        if (contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                window.location.href = '/contact.html'; // Redirect to the contact page
+            });
+        }
+
+        // Handle Logout Button Click
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('token'); // Clear the JWT token
+                alert('You have been logged out.');
+                window.location.href = '/'; // Redirect to the register/login page
+            });
+        }
+
+        // Require login check and initial page load
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Please log in first to access the book catalog.");
+            window.location.href = "register.html"; // Redirect to login if no token
+        } else {
+            // If token exists, load books page content
+            loadBooksPage();
+        }
+    });
+  </script>
+</body>
+</html>
